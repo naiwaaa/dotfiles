@@ -1,0 +1,15 @@
+[".config/ranger/plugins/devicons"]
+  type = "git-repo"
+  url = "https://github.com/alexanderjeurissen/ranger_devicons.git"
+  refreshPeriod = "168h"
+
+[".config/ranger/plugins/archives"]
+  type = "git-repo"
+  url = "https://github.com/maximtrp/ranger-archives.git"
+  refreshPeriod = "168h"
+
+[".config/ranger/plugins/zoxide"]
+  type = "git-repo"
+  url = "https://github.com/jchook/ranger-zoxide.git"
+  refreshPeriod = "168h"
+
