@@ -1,0 +1,17 @@
+# vim: ft=sshconfig
+
+Include ./local/*
+
+Host github.com
+  HostName ssh.github.com
+  User git
+  Port 443
+  IdentityFile ~/.ssh/id_gh_naiwaaa
+  IdentitiesOnly yes
+
+Host gitlab.com
+  HostName altssh.gitlab.com
+  User git
+  Port 443
+  IdentityFile ~/.ssh/id_gl
+  IdentitiesOnly yes
