@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+{{- $sudo := "sudo " -}}
+{{- if eq .chezmoi.username "root" -}}
+{{-   $sudo = "" -}}
+{{- end }}
+
+{{ if eq .osId "linux-arch" }}
+{{ $sudo }}pacman -S starship
+{{ else }}
+BIN_DIR=$HOME/.local/bin
+
+mkdir -p ${BIN_DIR}
+sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y -b $HOME/.local/bin
+{{ end }}

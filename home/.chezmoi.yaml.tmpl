@@ -1,4 +1,11 @@
-{{ $email := promptString "email" -}}
+{{- $osId := .chezmoi.os -}}
+{{- if and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "idLike") -}}
+{{-   $osId = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.idLike -}}
+{{- end -}}
+
+{{- $email := promptString "email" -}}
 
 data:
-  email: {{ $email }}
+  osId: {{ $osId | quote }}
+
+  email: {{ $email | quote }}

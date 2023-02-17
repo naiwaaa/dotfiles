@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+{{- $sudo := "sudo " -}}
+{{- if eq .chezmoi.username "root" -}}
+{{-   $sudo = "" -}}
+{{- end }}
+
+{{ if eq .osId "linux-arch" }}
+{{ $sudo }}pacman -Syu
+{{ else }}
+{{ $sudo }}apt update
+{{ $sudo }}apt upgrade
+{{ end }}
