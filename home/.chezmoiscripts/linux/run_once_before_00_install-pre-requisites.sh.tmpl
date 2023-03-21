@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+{{- $sudo := "sudo " -}}
+{{- if eq .chezmoi.username "root" -}}
+{{-   $sudo = "" -}}
+{{- end -}}
+
+{{ "" }}
+
+{{ if eq .osId "linux-arch" -}}
+
+{{ $sudo -}} pacman -Syu
+{{ $sudo -}} pacman -Sy git
+
+{{- else -}}
+
+{{ $sudo -}} apt update
+{{ $sudo -}} apt upgrade
+{{ $sudo -}} apt install --no-install-recommends ca-certificates curl wget git
+
+{{- end -}}

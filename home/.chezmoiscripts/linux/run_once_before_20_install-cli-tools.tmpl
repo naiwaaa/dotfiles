@@ -9,12 +9,10 @@
 
 {{ if eq .osId "linux-arch" -}}
 
-{{ $sudo -}} pacman -S starship
+{{ $sudo -}} pacman -S fzf ripgrep fd
 
 {{- else -}}
 
-BIN_DIR=$HOME/.local/bin
-mkdir -p ${BIN_DIR}
-sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y -b $BIN_DIR
+{{ $sudo -}} apt install fzf ripgrep fd-find
 
 {{- end -}}

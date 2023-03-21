@@ -1,0 +1,67 @@
+local git_icons = require("IDE.theme.icons").git
+
+return {
+  "nvim-tree/nvim-tree.lua",
+  cmd = {
+    "NvimTreeOpen",
+    "NvimTreeToggle",
+    "NvimTreeFocus",
+    "NvimTreeRefresh",
+    "NvimTreeFindFile",
+    "NvimTreeClipboard",
+  },
+  init = function()
+    require("IDE.core.mappings").load_nvim_tree()
+  end,
+  opts = {
+    disable_netrw = true,
+    hijack_cursor = true,
+    sort_by = "name",
+    sync_root_with_cwd = true,
+    view = {
+      adaptive_size = false,
+      side = "right",
+      preserve_window_proportions = true,
+      mappings = {
+        list = {
+          { key = "<CR>", action = "edit_in_place" },
+          { key = "<C-e>", action = "edit" },
+        },
+      },
+    },
+    renderer = {
+      group_empty = true,
+      highlight_git = true,
+      root_folder_modifier = ":~",
+      indent_markers = {
+        enable = true,
+      },
+      icons = {
+        git_placement = "signcolumn",
+        glyphs = {
+          git = {
+            unstaged = git_icons.unstaged,
+            staged = git_icons.staged,
+            unmerged = git_icons.unmerged,
+            renamed = git_icons.renamed,
+            untracked = git_icons.untracked,
+            deleted = git_icons.deleted,
+            ignored = git_icons.ignored,
+          },
+        },
+      },
+    },
+    update_focused_file = {
+      enable = true,
+      update_root = true,
+    },
+    actions = {
+      open_file = {
+        quit_on_open = true,
+      },
+    },
+  },
+  config = function(_, opts)
+    require("nvim-tree").setup(opts)
+  end,
+}

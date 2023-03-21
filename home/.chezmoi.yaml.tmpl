@@ -3,7 +3,7 @@
 {{-   $osId = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.idLike -}}
 {{- end -}}
 
-{{- $email := promptString "email" -}}
+{{- $email := promptStringOnce . "email" "Email address" -}}
 
 data:
   osId: {{ $osId | quote }}
