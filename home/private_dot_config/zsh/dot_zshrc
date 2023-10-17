@@ -1,0 +1,57 @@
+# -----------
+# Core config
+# -----------
+
+config_files=(
+  "options"
+  "editor"
+  "history"
+  "directory"
+  "utility"
+)
+
+for config_file in "${config_files[@]}"; do
+  # shellcheck source=/dev/null
+  source "${ZDOTDIR}/zsh_config.d/${config_file}.zsh"
+done
+
+unset config_files
+
+# -------
+# Plugins
+# -------
+
+plugins=(
+  "asdf"
+  "bat"
+  "direnv"
+  "docker"
+  "fzf"
+  "git"
+  "go"
+  "kitty"
+  "node"
+  "prompt"
+  "python"
+  "rsync"
+  "rust"
+  "xdg-ninja"
+  "zoxide"
+  "history-substring-search"
+  "autosuggestions"
+  "completion"
+)
+
+for plugin in "${plugins[@]}"; do
+  # shellcheck source=/dev/null
+  source "${ZDOTDIR}/plugins/${plugin}/init.zsh"
+done
+
+unset plugins
+
+#
+#
+#
+
+# remove duplicates in zsh $PATH
+typeset -aU path

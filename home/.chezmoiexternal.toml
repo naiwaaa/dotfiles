@@ -1,0 +1,9 @@
+[".config/zsh/plugins/history-substring-search/external"]
+type = "git-repo"
+url = "https://github.com/zsh-users/zsh-history-substring-search.git"
+refreshPeriod = "168h"
+
+[".config/zsh/plugins/autosuggestions/external"]
+type = "git-repo"
+url = "https://github.com/zsh-users/zsh-autosuggestions.git"
+refreshPeriod = "168h"
