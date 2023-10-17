@@ -1,0 +1,22 @@
+# vim: ft=sshconfig
+
+HashKnownHosts yes
+
+Host *
+  AddKeysToAgent yes
+  IdentitiesOnly yes
+  PreferredAuthentications publickey
+
+Include ./ssh_config.d/*
+
+{{ "" }}
+
+{{- if .isPersonal -}}
+Host git.sr.ht
+  HostName git.sr.ht
+  IdentityFile ~/.ssh/ssh_keys/personal_id_sr
+
+Host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/ssh_keys/personal_id_gh
+{{- end -}}
