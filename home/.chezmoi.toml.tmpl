@@ -1,0 +1,22 @@
+{{- $osId := .chezmoi.os -}}
+{{- if and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id") -}}
+{{-   $osId = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+{{- $isPersonal := promptBoolOnce . "isPersonal" "Personal computer?" -}}
+
+[data]
+osId = {{ $osId | quote }}
+isPersonal = {{ $isPersonal }}
+
+{{ "" }}
+
+{{- if $isPersonal -}}
+[data.git.personal_sr]
+name = "Tho Nguyen"
+email = {{ promptStringOnce . "git.personal_sr.email" "SourceHut Personal Email" | quote }}
+
+[data.git.personal_gh]
+name = "Tho Nguyen"
+email = {{ promptStringOnce . "git.personal_gh.email" "GitHub Personal Email" | quote }}
+{{- end -}}
