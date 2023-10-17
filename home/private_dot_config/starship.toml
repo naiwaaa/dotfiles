@@ -1,0 +1,110 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+scan_timeout = 10
+command_timeout = 500
+format = """
+$username\
+$hostname\
+\
+$directory\
+\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+\
+$kubernetes\
+$docker_context\
+\
+$package\
+\
+$memory_usage\
+$cmd_duration\
+\
+$line_break\
+\
+$jobs\
+$container\
+$golang\
+$rust\
+$nodejs\
+$python\
+$conda\
+$character"""
+
+[cmd_duration]
+format = "[󱎫 $duration]($style) "
+style = "yellow"
+show_notifications = true
+min_time_to_notify = 3600_000     # 60 minutes
+
+[conda]
+format = "[🅒 $environment]($style) "
+style = "bold green"
+ignore_base = false
+
+[container]
+format = '[⬢ \[$name\]]($style) '
+style = "bold red dimmed"
+
+[directory]
+format = "[$read_only]($read_only_style)[$path]($style) "
+style = "bold cyan"
+read_only = " "
+read_only_style = "red"
+truncation_length = 99
+truncate_to_repo = false
+
+[directory.substitutions]
+"~/Documents" = "Documents"
+"~/Downloads" = "Downloads"
+"~/Projects" = "Projects"
+
+[docker_context]
+
+[git_branch]
+format = "[ $branch(:$remote_branch)]($style) "
+style = "purple"
+
+[git_commit]
+format = "[ $hash]($style) "
+style = "purple"
+
+[git_state]
+
+[git_metrics]
+disabled = false
+
+[git_status]
+
+[golang]
+
+[hostname]
+format = "[󰢹 $hostname]($style) "
+style = "yellow"
+trim_at = ""
+ssh_only = false
+
+[jobs]
+
+[kubernetes]
+
+[memory_usage]
+
+[nodejs]
+
+[package]
+disabled = true
+symbol = " "
+
+[python]
+symbol = " "
+
+[rust]
+
+[username]
+format = "[󰠦 $user]($style) "
+style_root = "red"
+style_user = "yellow"
+show_always = true
