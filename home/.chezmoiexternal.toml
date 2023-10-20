@@ -1,3 +1,8 @@
+[".config/bat/themes/rose-pine"]
+type = "git-repo"
+url = "https://github.com/rose-pine/sublime-text.git"
+refreshPeriod = "168h"
+
 [".config/zsh/plugins/history-substring-search/external"]
 type = "git-repo"
 url = "https://github.com/zsh-users/zsh-history-substring-search.git"

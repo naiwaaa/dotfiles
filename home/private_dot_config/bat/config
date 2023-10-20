@@ -1,0 +1,10 @@
+# vim: ft=conf
+
+--tabs="8"
+--italic-text="always"
+--theme="rose-pine"
+--style="changes"
+
+--map-syntax="*.conf:INI"
+--map-syntax=".*ignore:Git Ignore"
+--map-syntax="*.zsh:Bourne Again Shell (bash)"
