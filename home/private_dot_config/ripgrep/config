@@ -1,0 +1,6 @@
+# vim: ft=conf
+
+--glob=!.git/
+--hidden
+--smart-case
+--sort=path
