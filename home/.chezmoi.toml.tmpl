@@ -14,9 +14,11 @@ isPersonal = {{ $isPersonal }}
 {{- if $isPersonal -}}
 [data.git.personal_sr]
 name = "Tho Nguyen"
-email = {{ promptStringOnce . "git.personal_sr.email" "SourceHut Personal Email" | quote }}
+username = {{ promptStringOnce . "git.personal_sr.username" "My SourceHut username" | quote }}
+email = {{ promptStringOnce . "git.personal_sr.email" "My SourceHut email" | quote }}
 
 [data.git.personal_gh]
 name = "Tho Nguyen"
-email = {{ promptStringOnce . "git.personal_gh.email" "GitHub Personal Email" | quote }}
+username = {{ promptStringOnce . "git.personal_gh.username" "My GitHub username" | quote }}
+email = {{ promptStringOnce . "git.personal_gh.email" "My GitHub email" | quote }}
 {{- end -}}

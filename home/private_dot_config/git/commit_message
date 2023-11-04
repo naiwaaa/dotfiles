@@ -1,0 +1,50 @@
+<type>(<scope>): <subject>
+
+#<---              Using a Maximum of 72 characters                --->#
+# Read it as: If applied, this commit will <commit message here>.
+#
+# ======================================================================
+# == Type
+# ======================================================================
+#    ci       - updating CI configrations files/scripts
+#    chore    - updating build tasks, package manager config, etc.
+#    docs     - updating docs or README
+#    feat     - adding a new feature
+#    fix      - fixing a bug or issue
+#    perf     - improving performance
+#    refactor - refactoring, improving structure, code or comments
+#    style    - updating code styles
+#    test     - adding missing tests/correcting existing tests
+#
+# ======================================================================
+# == Subject
+# ======================================================================
+# Start with an imperative present active verb:
+#    Add
+#    Drop
+#    Remove
+#    Fix
+#    Optimize
+#    Document
+#    Refactor
+#    Reformat
+#
+# ======================================================================
+# == Why is this change necessary? (Bug fix, feature, improvements,... )
+# ======================================================================
+# Why:
+
+# ======================================================================
+# == How does the change address the issue?
+# ======================================================================
+# How:
+
+# ======================================================================
+# == What side effects does this change have?
+# ======================================================================
+# Side effects:
+
+# BREAKING CHANGE: <description>
+# Closes #id, #id
+
+# vim: textwidth=72 formatoptions+=t

@@ -1,0 +1,109 @@
+# vim: ft=gitconfig
+
+[core]
+  compression     = 9
+  editor          = nvim
+
+[alias]
+  # list things
+  tags            = tag -l
+  branches        = branch -av
+  remotes         = remote -v
+
+  # shorten common commands
+  s               = status
+  ci              = commit
+  cim             = commit -m
+  co              = checkout
+  d               = diff
+  dc              = diff --cached
+
+  # log
+  l               = log --graph --pretty=format:'%C(yellow)%h%C(reset) - %C(auto)%d%C(reset) %s %C(green)(%ar)%C(reset) %C(dim blue)<%an - %ae>%C(reset)'
+  ls              = log --oneline --decorate --graph --stat
+
+  oops            = commit --amend --no-edit
+
+[color]
+  ui              = true
+
+[color "branch"]
+  current         = white reverse
+  local           = white
+  remote          = yellow
+  upstream        = cyan
+
+[color "diff"]
+  meta            = magenta
+  frag            = magenta bold
+  old             = red bold
+  new             = green bold
+
+[color "status"]
+  added           = green
+  changed         = yellow
+  untracked       = red
+
+[commit]
+  template        = commit_message
+
+[diff]
+  mnemonicPrefix  = true
+  renames         = copies
+  algorithm       = histogram
+  tool            = nvimdiff
+  guitool         = nvimdiff
+
+[difftool]
+  prompt          = false
+
+[fetch]
+  prune           = true
+  pruneTags       = true
+
+[init]
+  defaultBranch   = main
+
+[log]
+  abbrevCommit    = true
+  decorate        = auto
+
+[merge]
+  ff              = false
+  log             = true
+  tool            = nvimdiff
+  guitool         = nvimdiff
+
+[mergetool]
+  keepBackup      = false
+  keepTemporaries = false
+  prompt          = false
+
+[pull]
+  ff              = only
+
+[push]
+  followTags      = true
+
+[rebase]
+  autoSquash      = true
+  autoStash       = true
+
+[status]
+  submoduleSummary = true
+
+{{ "" }}
+
+{{- if .isPersonal -}}
+[url "git@git.sr.ht:~{{ .git.personal_sr.username }}/"]
+  insteadOf       = https://git.sr.ht/~{{ .git.personal_sr.username }}/
+
+[url "git@github.com:{{ .git.personal_gh.username }}/"]
+  insteadOf       = https://github.com/{{ .git.personal_gh.username }}/
+
+[includeIf "gitdir:~/Projects/Personal/SourceHut/"]
+  path            = git_config.d/personal_sr
+
+[includeIf "gitdir:~/Projects/Personal/GitHub/"]
+  path            = git_config.d/personal_gh
+{{- end -}}

@@ -1,0 +1,7 @@
+{{- if .isPersonal -}}
+
+[user]
+  name            = {{ .git.personal_gh.name }}
+  email           = {{ .git.personal_gh.email }}
+
+{{- end -}}
