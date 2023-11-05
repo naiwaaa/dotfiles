@@ -17,3 +17,8 @@ refreshPeriod = "168h"
 type = "file"
 url = "https://raw.githubusercontent.com/rose-pine/btop/main/rose-pine.theme"
 refreshPeriod = "168h"
+
+[".config/kitty/themes/rose-pine.conf"]
+type = "file"
+url = "https://raw.githubusercontent.com/rose-pine/kitty/main/dist/rose-pine.conf"
+refreshPeriod = "168h"
