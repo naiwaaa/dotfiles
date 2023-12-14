@@ -1,0 +1,26 @@
+#!/usr/bin/bash
+
+{{-
+  $packages := list
+    "aria2"
+    "bat"
+    "btop"
+    "direnv"
+    "fd"
+    "fzf"
+    "git"
+    "nvitop"
+    "ripgrep"
+    "starship"
+    "tealdeer"
+    "unarchiver"
+    "yazi"
+    "zoxide"
+    "zsh"
+-}}
+
+{{ "" }}
+
+paru -S {{ $packages | join " " }}
+
+bat cache --build

@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+{{- $sudo := "sudo " -}}
+{{- if eq .chezmoi.username "root" -}}
+{{-   $sudo = "" -}}
+{{- end -}}
+
+{{ "" }}
+
+# perform full system upgrade
+{{ $sudo -}} pacman -Syu
+
+# install prerequisites
+{{ $sudo -}} pacman -Sy base-devel curl git wget
+
+# install paru
+paru_dir="$HOME/Packages/paru-bin"
+mkdir -p "$paru_dir"
+git clone https://aur.archlinux.org/paru-bin.git "$paru_dir"
+cd "$paru_dir" || exit
+makepkg -si
