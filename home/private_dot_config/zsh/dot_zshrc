@@ -30,6 +30,7 @@ plugins=(
   "git"
   "go"
   "kitty"
+  "lscolors"
   "node"
   "prompt"
   "python"
