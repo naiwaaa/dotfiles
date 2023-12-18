@@ -3,16 +3,6 @@ type = "git-repo"
 url = "https://github.com/rose-pine/sublime-text.git"
 refreshPeriod = "168h"
 
-[".config/zsh/plugins/history-substring-search/external"]
-type = "git-repo"
-url = "https://github.com/zsh-users/zsh-history-substring-search.git"
-refreshPeriod = "168h"
-
-[".config/zsh/plugins/autosuggestions/external"]
-type = "git-repo"
-url = "https://github.com/zsh-users/zsh-autosuggestions.git"
-refreshPeriod = "168h"
-
 [".config/btop/themes/rose-pine.theme"]
 type = "file"
 url = "https://raw.githubusercontent.com/rose-pine/btop/main/rose-pine.theme"
@@ -21,4 +11,14 @@ refreshPeriod = "168h"
 [".config/kitty/themes/rose-pine.conf"]
 type = "file"
 url = "https://raw.githubusercontent.com/rose-pine/kitty/main/dist/rose-pine.conf"
+refreshPeriod = "168h"
+
+[".config/zsh/plugins/history-substring-search/external"]
+type = "git-repo"
+url = "https://github.com/zsh-users/zsh-history-substring-search.git"
+refreshPeriod = "168h"
+
+[".config/zsh/plugins/autosuggestions/external"]
+type = "git-repo"
+url = "https://github.com/zsh-users/zsh-autosuggestions.git"
 refreshPeriod = "168h"
