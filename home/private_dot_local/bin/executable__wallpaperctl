@@ -1,0 +1,17 @@
+#!/bin/bash
+
+WALLPAPERS_DIR="$HOME"/Pictures/Wallpapers
+
+main() {
+  random_image=$(find "${WALLPAPERS_DIR}" -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) | shuf -n1)
+
+  if [[ $(pidof swaybg) ]]; then
+    pkill swaybg
+  fi
+
+  swaybg \
+    --mode "fill" \
+    --image "${random_image}" &
+}
+
+main "$@"

@@ -1,0 +1,106 @@
+#!/bin/bash
+
+SCRIPT_NAME=$(basename "$0")
+
+main() {
+  if [[ $# -eq 0 ]]; then
+    echo "No option specified."
+    echo
+    .print_usage
+    exit 1
+  fi
+
+  local param
+
+  while [[ $# -gt 0 ]]; do
+    param="$1"
+    shift
+
+    case $param in
+    --get)
+      .get_volume
+      ;;
+    --inc)
+      .inc_volume
+      ;;
+    --dec)
+      .dec_volume
+      ;;
+    --toggle-mute)
+      .toggle_mute
+      ;;
+    -h | --help)
+      .print_usage
+      exit 0
+      ;;
+    *)
+      echo "error: unrecognized arguments: $param"
+      exit 1
+      ;;
+    esac
+  done
+}
+
+.print_usage() {
+  cat <<EOF
+Usage:
+  $SCRIPT_NAME [OPTION]
+
+Options:
+  --get           Get current volume
+  --inc           Increase volume by 5%
+  --dec           Decrease volume by 5%
+  --toggle-mute   Toggle mute/unmute
+  -h, --help      Show this help and exit
+EOF
+}
+
+.get_volume() {
+  sink_info=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+
+  volume=$(echo "$sink_info" | awk '{print $2*100}')
+  is_muted=$(echo "$sink_info" | awk '{print $3}')
+
+  if [[ "$is_muted" == "[MUTED]" ]]; then
+    echo "muted"
+  else
+    echo "$volume"
+  fi
+}
+
+.dec_volume() {
+  wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%- && .notify_user
+}
+
+.inc_volume() {
+  wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+ && .notify_user
+}
+
+.toggle_mute() {
+  wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && .notify_user
+}
+
+.notify_user() {
+  dunstify \
+    --urgency "low" \
+    --icon "$(.get_icon)" \
+    --hints "string:x-dunst-stack-tag:$SCRIPT_NAME" \
+    --hints "int:value:$(.get_volume)" \
+    "Volume"
+}
+
+.get_icon() {
+  current_volume=$(.get_volume)
+
+  if [[ "$current_volume" == "muted" ]]; then
+    echo "audio-volume-muted-symbolic"
+  elif [[ ("$current_volume" -ge "0") && ("$current_volume" -lt "30") ]]; then
+    echo "audio-volume-low-symbolic"
+  elif [[ ("$current_volume" -ge "30") && ("$current_volume" -lt "60") ]]; then
+    echo "audio-volume-medium-symbolic"
+  elif [[ ("$current_volume" -ge "60") && ("$current_volume" -le "100") ]]; then
+    echo "audio-volume-high-symbolic"
+  fi
+}
+
+main "$@"

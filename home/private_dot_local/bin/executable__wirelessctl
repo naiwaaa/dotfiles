@@ -1,0 +1,68 @@
+#!/bin/bash
+
+SCRIPT_NAME=$(basename "$0")
+
+main() {
+  if [[ $# -eq 0 ]]; then
+    echo "No option specified."
+    echo
+    .print_usage
+    exit 1
+  fi
+
+  local param
+
+  while [[ $# -gt 0 ]]; do
+    param="$1"
+    shift
+
+    case $param in
+    --toggle-airplane)
+      .toggle_airplane_mode
+      ;;
+    -h | --help)
+      .print_usage
+      exit 0
+      ;;
+    *)
+      echo "error: unrecognized arguments: $param"
+      exit 1
+      ;;
+    esac
+  done
+}
+
+.print_usage() {
+  cat <<EOF
+Usage:
+  $SCRIPT_NAME [OPTION]
+
+Options:
+  --toggle-airplane  Toggle airplane mode
+  -h, --help         Show this help and exit
+EOF
+}
+
+.toggle_airplane_mode() {
+  wifi="$(nmcli r wifi | awk 'FNR = 2 {print $1}')"
+
+  if [ "$wifi" == "enabled" ]; then
+    rfkill block all
+    dunstify \
+      --urgency "low" \
+      --icon "airplane-mode-symbolic" \
+      --hints "string:x-dunst-stack-tag:$SCRIPT_NAME" \
+      "Airplane mode" \
+      "On"
+  else
+    rfkill unblock all
+    dunstify \
+      --urgency "low" \
+      --icon "network-wireless-connected-symbolic" \
+      --hints "string:x-dunst-stack-tag:$SCRIPT_NAME" \
+      "Airplane mode" \
+      "Off"
+  fi
+}
+
+main "$@"

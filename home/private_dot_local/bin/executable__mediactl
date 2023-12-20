@@ -1,0 +1,114 @@
+#!/bin/bash
+
+SCRIPT_NAME=$(basename "$0")
+
+main() {
+  if [[ $# -eq 0 ]]; then
+    echo "No option specified."
+    echo
+    .print_usage
+    exit 1
+  fi
+
+  local param
+
+  while [[ $# -gt 0 ]]; do
+    param="$1"
+    shift
+
+    case $param in
+    --toggle-play-pause)
+      .toggle_play_pause
+      ;;
+    --stop)
+      .stop_playback
+      ;;
+    --next)
+      .play_next
+      ;;
+    --previous)
+      .play_previous
+      ;;
+    -h | --help)
+      .print_usage
+      exit 0
+      ;;
+    *)
+      echo "error: unrecognized arguments: $param"
+      exit 1
+      ;;
+    esac
+  done
+}
+
+.print_usage() {
+  cat <<EOF
+Usage:
+  $SCRIPT_NAME [OPTION]
+
+Options:
+  --toggle-play-pause   Toggle between play/pause
+  --stop                Stop the player
+  --next                Skip to the next track
+  --previous            Skip to the previous track
+  -h, --help            Show this help and exit
+EOF
+}
+
+.toggle_play_pause() {
+  playerctl play-pause
+  .notify_user
+}
+
+.stop_playback() {
+  playerctl stop
+
+  dunstify \
+      --urgency "low" \
+      --icon "media-playback-stop-symbolic" \
+      --hints "string:x-dunst-stack-tag:$SCRIPT_NAME" \
+      "Stopped playback"
+}
+
+.play_next() {
+  playerctl next
+  .notify_user
+}
+
+.play_previous() {
+  playerctl previous
+  .notify_user
+}
+
+.notify_user() {
+  status=$(playerctl status 2>/dev/null)
+  echo "status: $status"
+
+  if [[ "$status" == "No players found" ]]; then
+    echo "1"
+    dunstify \
+      --urgency "low" \
+      --hints "string:x-dunst-stack-tag:$SCRIPT_NAME" \
+      "No players found"
+  elif [[ "$status" == "Playing" ]]; then
+    echo "2"
+    song_title=$(playerctl metadata title)
+    song_artist=$(playerctl metadata artist)
+
+    dunstify \
+      --urgency "low" \
+      --icon "media-playback-start-symbolic" \
+      --hints "string:x-dunst-stack-tag:$SCRIPT_NAME" \
+      "Playing" \
+      "<b>$song_title</b>\nby <i>$song_artist</i>"
+  elif [[ "$status" == "Paused" ]]; then
+    echo 3
+    dunstify \
+      --urgency "low" \
+      --icon "media-playback-pause-symbolic" \
+      --hints "string:x-dunst-stack-tag:$SCRIPT_NAME" \
+      "Paused playback "
+  fi
+}
+
+main "$@"

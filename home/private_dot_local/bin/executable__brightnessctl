@@ -1,0 +1,77 @@
+#!/bin/bash
+
+SCRIPT_NAME=$(basename "$0")
+
+main() {
+  if [[ $# -eq 0 ]]; then
+    echo "No option specified."
+    echo
+    .print_usage
+    exit 1
+  fi
+
+  local param
+
+  while [[ $# -gt 0 ]]; do
+    param="$1"
+    shift
+
+    case $param in
+    --get)
+      .get_brightness
+      ;;
+    --inc)
+      .inc_brightness
+      ;;
+    --dec)
+      .dec_brightness
+      ;;
+    -h | --help)
+      .print_usage
+      exit 0
+      ;;
+    *)
+      echo "error: unrecognized arguments: $param"
+      exit 1
+      ;;
+    esac
+  done
+}
+
+.print_usage() {
+  cat <<EOF
+Usage:
+  $SCRIPT_NAME [OPTION]
+
+Options:
+  --get         Get current brightness
+  --inc         Increase brightness by 5%
+  --dec         Decrease brightness by 5%
+  -h, --help    Show this help and exit
+EOF
+}
+
+.get_brightness() {
+  current_brightness=$(brightnessctl --machine-readable | awk -F, '{print substr($4, 0, length($4) - 1)}')
+
+  echo "$current_brightness"
+}
+
+.inc_brightness() {
+  brightnessctl set 5%+ >/dev/null && .notify_user
+}
+
+.dec_brightness() {
+  brightnessctl set 5%- >/dev/null && .notify_user
+}
+
+.notify_user() {
+  dunstify \
+    --urgency "low" \
+    --icon "display-brightness-symbolic" \
+    --hints "string:x-dunst-stack-tag:$SCRIPT_NAME" \
+    --hints "int:value:$(.get_brightness)" \
+    "Brightness"
+}
+
+main "$@"
