@@ -1,0 +1,11 @@
+[tools]
+node = "lts"
+poetry = "latest"
+python = "3.11"
+
+[settings]
+experimental = true
+legacy_version_file = false
+plugin_autoupdate_last_check_duration = "1 week"
+trusted_config_paths = ["~/Projects", "~/Workspace"]
+status = { show_env = true }

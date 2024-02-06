@@ -22,15 +22,14 @@ unset config_files
 # -------
 
 plugins=(
-  "asdf"
   "bat"
-  "direnv"
   "docker"
   "fzf"
   "git"
   "go"
   "kitty"
   "lscolors"
+  "mise"
   "node"
   "prompt"
   "python"
