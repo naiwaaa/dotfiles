@@ -24,6 +24,9 @@
 
   oops            = commit --amend --no-edit
 
+[branch]
+  sort            = -committerdate
+
 [color]
   ui              = true
 
@@ -38,6 +41,8 @@
   frag            = magenta bold
   old             = red bold
   new             = green bold
+  colorMoved      = default
+  colorMovedWS    = allow-indentation-change
 
 [color "status"]
   added           = green
@@ -46,6 +51,7 @@
 
 [commit]
   template        = commit_message
+  verbose         = true
 
 [diff]
   mnemonicPrefix  = true
@@ -69,6 +75,7 @@
   decorate        = auto
 
 [merge]
+  conflictStyle   = zdiff3
   ff              = false
   log             = true
   tool            = nvimdiff
@@ -83,11 +90,15 @@
   ff              = only
 
 [push]
+  autoSetupRemote = true
   followTags      = true
 
 [rebase]
   autoSquash      = true
   autoStash       = true
+
+[rerere]
+  enabled         = true
 
 [status]
   submoduleSummary = true
