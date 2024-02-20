@@ -1,0 +1,114 @@
+#!/usr/bin/env python3
+
+import shutil
+from argparse import ArgumentParser
+from datetime import date
+
+LIFE_EXPECTANCY = 60
+
+END_OF_LIFE = """
+\"O little one,
+My little one,
+Come with me,
+Your life is done.
+
+Forget the future,
+Forget the past.
+Life is over:
+Breathe your last.\"
+― Clive Barker, Abarat
+"""
+
+RED_BLOCK = "\033[41m \033[0m"
+GREEN_BLOCK = "\033[42m \033[0m"
+
+
+def main() -> None:
+    """How much time did you waste?"""
+    parser = _build_parser()
+    args = parser.parse_args()
+
+    _memento_mori(
+        args.name,
+        args.birth_date,
+        _calculate_death_date(args.birth_date, LIFE_EXPECTANCY),
+    )
+
+
+def _memento_mori(name: str, birth_date: date, death_date: date) -> None:
+    today = date.today()
+
+    your_life = (death_date - birth_date).days
+    wasted_days = min((today - birth_date).days, your_life)
+    remaining_days = your_life - wasted_days
+
+    total_weeks = int(your_life / 7)
+    wasted_weeks = int(wasted_days / 7)
+    remaining_weeks = total_weeks - wasted_weeks
+
+    print()
+
+    if remaining_weeks > 0:
+        print(
+            f"{name}, only {remaining_weeks} {today.strftime('%A')} remain - "
+            f"{int(wasted_weeks * 100 / total_weeks)}% wasted"
+        )
+    else:
+        print(f"{name}, you wasted all of your {today.strftime('%A')}.")
+
+    print()
+    _print_progress(
+        wasted_days,
+        your_life,
+        (
+            f"{remaining_days} day{'s' if remaining_days > 1 else ''} left"
+            if remaining_days < 14
+            else None
+        ),
+    )
+
+    if remaining_days <= 0:
+        print(END_OF_LIFE)
+
+    print()
+
+
+def _build_parser() -> ArgumentParser:
+    parser = ArgumentParser(prog="_mori", description=main.__doc__)
+
+    parser.add_argument(
+        "name",
+        type=str,
+        help="Your name",
+    )
+
+    parser.add_argument(
+        "birth_date",
+        type=date.fromisoformat,
+        help="Your date of birth in ISO 8601 format (YYYY-MM-DD)",
+    )
+
+    return parser
+
+
+def _calculate_death_date(birth_date: date, ages: int) -> date:
+    try:
+        return birth_date.replace(year=birth_date.year + ages)
+    except ValueError:
+        # raised when birth_date is February 29 and
+        # the death year is not a leap year
+        return birth_date.replace(year=birth_date.month + 1, day=1)
+
+
+def _print_progress(wasted: int, total: int, message: str | None) -> None:
+    terminal_width = shutil.get_terminal_size(fallback=(80, 25)).columns
+    width = terminal_width if terminal_width < 80 else 80
+    n_red_blocks = wasted * width // total
+
+    print(f"{RED_BLOCK * n_red_blocks}{GREEN_BLOCK * (width - n_red_blocks)}")
+    if message is not None:
+        print(f"{' '*(width-len(message))}{message}")
+
+
+if __name__ == "__main__":
+    main()
