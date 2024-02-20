@@ -59,7 +59,9 @@ truncate_to_repo = false
 [directory.substitutions]
 "~/Documents" = "Documents"
 "~/Downloads" = "Downloads"
+"~/Playground" = "Playground"
 "~/Projects" = "Projects"
+"~/Workspace" = "Workspace"
 
 [docker_context]
 
