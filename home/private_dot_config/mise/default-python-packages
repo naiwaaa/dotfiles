@@ -1,2 +1,4 @@
-python-dateutil
-rich
+ipython
+matplotlib
+numpy
+pandas[performancei, plot, output-formatting, parquet]
