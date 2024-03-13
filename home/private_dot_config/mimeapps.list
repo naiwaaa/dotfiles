@@ -1,0 +1,7 @@
+[Added Associations]
+application/pdf=firefoxdeveloperedition.desktop;
+
+[Default Applications]
+application/pdf=firefoxdeveloperedition.desktop
+text/plain=code.desktop
+text/html=firefoxdeveloperedition.desktop
