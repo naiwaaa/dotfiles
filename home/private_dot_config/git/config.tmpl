@@ -1,6 +1,8 @@
 # vim: ft=gitconfig
 
 [core]
+  autocrlf        = input
+  safecrlf        = true
   compression     = 9
   editor          = nvim
 
@@ -9,11 +11,13 @@
   tags            = tag -l
   branches        = branch -av
   remotes         = remote -v
+  recent          = ! git branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\" | head -10
 
   # shorten common commands
   s               = status
   ci              = commit
   cim             = commit -m
+  cie             = commit --allow-empty
   co              = checkout
   d               = diff
   dc              = diff --cached
@@ -21,6 +25,7 @@
   # log
   l               = log --graph --pretty=format:'%C(yellow)%h%C(reset) - %C(auto)%d%C(reset) %s %C(green)(%ar)%C(reset) %C(dim blue)<%an - %ae>%C(reset)'
   ls              = log --oneline --decorate --graph --stat
+  lv              = log --graph --pretty=format:'commit: %C(bold red)%h%Creset %C(red)[%H]%Creset %C(bold magenta)%d %Creset%ndate: %C(bold yellow)%cd %Creset%C(yellow)%cr%Creset%nauthor: %C(bold blue)%an%Creset %C(blue)[%ae]%Creset%n%C(cyan)%s%n%Creset'
 
   oops            = commit --amend --no-edit
 
@@ -50,7 +55,7 @@
   untracked       = red
 
 [commit]
-  template        = commit_message
+  template        = ~/.config/git/commit_message
   verbose         = true
 
 [diff]
@@ -72,6 +77,7 @@
 
 [log]
   abbrevCommit    = true
+  date            = iso-local
   decorate        = auto
 
 [merge]
