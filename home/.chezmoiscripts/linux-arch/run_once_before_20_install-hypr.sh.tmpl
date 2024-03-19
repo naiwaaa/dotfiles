@@ -1,0 +1,31 @@
+#!/usr/bin/bash
+
+{{-
+  $packages := list
+    "brightnessctl"
+    "dunst"
+    "fcitx5-im"
+    "fcitx5-bamboo"
+    "grim"
+    "hyprland-git"
+    "hypridle-git"
+    "hyprlock-git"
+    "kitty"
+    "polkit-gnome"
+    "gnome-keyring"
+    "qt5-wayland"
+    "qt6-wayland"
+    "rofi-wayland"
+    "slurp"
+    "swaybg"
+    "trash-cli"
+    "udiskie"
+    "upower"
+    "xdg-user-dirs"
+    "xdg-desktop-portal-gtk"
+    "xdg-desktop-portal-hyprland-git"
+-}}
+
+{{ "" }}
+
+paru -S {{ $packages | join " " }}

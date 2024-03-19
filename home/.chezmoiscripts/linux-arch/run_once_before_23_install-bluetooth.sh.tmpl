@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+{{-
+  $packages := list
+    "bluez"
+    "bluez-utils"
+    "blueman"
+-}}
+
+{{ "" }}
+
+paru -S {{ $packages | join " " }}

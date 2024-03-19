@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+
+{{-
+  $packages := list
+    "firefox-developer-edition"
+    "google-chrome"
+    "obsidian"
+    "pcloud-drive"
+    "swappy"
+    "tesseract"
+    "tesseract-data-eng"
+    "vlc"
+-}}
+
+{{ "" }}
+
+paru -S {{ $packages | join " " }}

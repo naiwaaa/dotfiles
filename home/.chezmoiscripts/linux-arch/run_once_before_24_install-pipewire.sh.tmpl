@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+{{-
+  $packages := list
+    "pavucontrol"
+    "pipewire"
+    "playerctl"
+    "wireplumber"
+    "pipewire-alsa"
+    "pipewire-audio"
+    "pipewire-pulse"
+-}}
+
+{{ "" }}
+
+paru -S {{ $packages | join " " }}

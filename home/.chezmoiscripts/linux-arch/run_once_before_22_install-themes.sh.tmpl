@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+
+{{-
+  $packages := list
+    "arc-gtk-theme"
+    "bibata-cursor-theme-bin"
+    "candy-icons-git"
+    "fontconfig"
+    "kvantum-qt5"
+    "kvantum-theme-arc"
+    "nwg-look-bin"
+    "qt5ct"
+    "qt6ct"
+-}}
+
+{{ "" }}
+
+paru -S {{ $packages | join " " }}
