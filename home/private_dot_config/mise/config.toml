@@ -1,8 +1,10 @@
 [tools]
 bun = "latest"
 node = "lts"
+pnpm = "latest"
 poetry = "latest"
-python = "3.11"
+python = "3.12"
+zig = "latest"
 
 [settings]
 experimental = true
