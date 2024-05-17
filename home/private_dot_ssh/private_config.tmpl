@@ -4,8 +4,11 @@ HashKnownHosts yes
 
 Host *
   AddKeysToAgent yes
+  ConnectTimeout 10
+  ForwardAgent no
   IdentitiesOnly yes
   PreferredAuthentications publickey
+  ServerAliveInterval 30
 
 Include ./ssh_config.d/*
 
