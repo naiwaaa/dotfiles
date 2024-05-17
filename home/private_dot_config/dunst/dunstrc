@@ -83,7 +83,7 @@
   # -------------
 
   dmenu = "/usr/bin/rofi -p dunst:"
-  browser = "/usr/bin/firefox-developer-edition -new-tab"
+  browser = "/usr/bin/xdg-open"
   always_run_script = true
   title = "Dunst"
   class = "Dunst"
@@ -108,7 +108,7 @@
 
 [urgency_normal]
   icon = "dialog-information-symbolic"
-  timeout = 20
+  timeout = 10
 
 [urgency_critical]
   icon = "dialog-error-symbolic"
