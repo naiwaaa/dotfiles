@@ -28,6 +28,10 @@ alias lc="lt -c"
 # lists sorted by date, most recent last, shows access time
 alias lu="lt -u"
 
+# chmod
+alias x+="chmod u+x"
+alias x-="chmox u-x"
+
 # file download
 alias download="aria2c --max-concurrent-downloads=2 --split=16 --max-connection-per-server=16 --remote-time"
 
