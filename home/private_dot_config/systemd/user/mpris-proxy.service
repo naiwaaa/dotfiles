@@ -1,0 +1,11 @@
+[Unit]
+Description=Forward bluetooth media controls to MPRIS
+Requires=dbus.service bluetooth.target
+After=dbus.service bluetooth.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/mpris-proxy
+
+[Install]
+WantedBy=default.target
