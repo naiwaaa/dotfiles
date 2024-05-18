@@ -64,10 +64,10 @@ EOF
   playerctl stop
 
   dunstify \
-      --urgency "low" \
-      --icon "media-playback-stop-symbolic" \
-      --hints "string:x-dunst-stack-tag:$SCRIPT_NAME" \
-      "Stopped playback"
+    --urgency "low" \
+    --icon "media-playback-stopped-symbolic" \
+    --hints "string:x-dunst-stack-tag:$SCRIPT_NAME" \
+    "Stopped playback"
 }
 
 .play_next() {
@@ -97,7 +97,7 @@ EOF
 
     dunstify \
       --urgency "low" \
-      --icon "media-playback-start-symbolic" \
+      --icon "media-playback-playing-symbolic" \
       --hints "string:x-dunst-stack-tag:$SCRIPT_NAME" \
       "Playing" \
       "<b>$song_title</b>\nby <i>$song_artist</i>"
@@ -105,7 +105,7 @@ EOF
     echo 3
     dunstify \
       --urgency "low" \
-      --icon "media-playback-pause-symbolic" \
+      --icon "media-playback-paused-symbolic" \
       --hints "string:x-dunst-stack-tag:$SCRIPT_NAME" \
       "Paused playback "
   fi
