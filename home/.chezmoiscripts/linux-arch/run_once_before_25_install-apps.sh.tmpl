@@ -2,16 +2,16 @@
 
 {{-
   $packages := list
+    "calibre"
     "firefox-developer-edition"
     "google-chrome"
     "obsidian"
     "pcloud-drive"
     "swappy"
-    "tesseract"
-    "tesseract-data-eng"
     "vlc"
+    "wps-office"
 -}}
 
 {{ "" }}
 
-paru -S {{ $packages | join " " }}
+paru -Sy --needed {{ $packages | join " " }}

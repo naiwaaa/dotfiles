@@ -7,7 +7,6 @@
     "btop"
     "fd"
     "fzf"
-    "git"
     "nvitop"
     "ripgrep"
     "rsync"
@@ -21,6 +20,6 @@
 
 {{ "" }}
 
-paru -S {{ $packages | join " " }}
+paru -Sy --needed {{ $packages | join " " }}
 
 bat cache --build

@@ -9,4 +9,4 @@
 
 {{ "" }}
 
-paru -S {{ $packages | join " " }}
+paru -Sy --needed {{ $packages | join " " }}
