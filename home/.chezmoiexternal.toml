@@ -1,6 +1,10 @@
-[".config/bat/themes/rose-pine"]
-type = "git-repo"
-url = "https://github.com/rose-pine/sublime-text.git"
+# ------------------
+# Color theme - Dark
+# ------------------
+
+[".config/bat/themes/rose-pine.tmTheme"]
+type = "file"
+url = "https://raw.githubusercontent.com/rose-pine/tm-theme/main/dist/themes/rose-pine.tmTheme"
 refreshPeriod = "168h"
 
 [".config/btop/themes/rose-pine.theme"]
@@ -12,6 +16,24 @@ refreshPeriod = "168h"
 type = "file"
 url = "https://raw.githubusercontent.com/rose-pine/kitty/main/dist/rose-pine.conf"
 refreshPeriod = "168h"
+
+# -------------------
+# Color Theme - Light
+# -------------------
+
+[".config/bat/themes/rose-pine-dawn.tmTheme"]
+type = "file"
+url = "https://raw.githubusercontent.com/rose-pine/tm-theme/main/dist/themes/rose-pine-dawn.tmTheme"
+refreshPeriod = "168h"
+
+[".config/btop/themes/rose-pine-dawn.theme"]
+type = "file"
+url = "https://raw.githubusercontent.com/rose-pine/btop/main/rose-pine-dawn.theme"
+refreshPeriod = "168h"
+
+# -----------
+# ZSH plugins
+# -----------
 
 [".config/zsh/plugins/history-substring-search/external"]
 type = "git-repo"

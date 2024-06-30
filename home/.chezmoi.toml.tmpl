@@ -5,9 +5,20 @@
 
 {{- $isPersonal := promptBoolOnce . "isPersonal" "Personal computer?" -}}
 
+{{- $isDark := promptBool "Dark mode?" -}}
+{{- $themes := $isDark | ternary (list "rose-pine") (list "rose-pine-dawn") -}}
+{{- $colorTheme := promptChoice "Color theme?" $themes -}}
+
+
 [data]
 osId = {{ $osId | quote }}
 isPersonal = {{ $isPersonal }}
+
+{{ "" }}
+
+[data.theme]
+isDark = {{ $isDark }}
+colorTheme = {{ $colorTheme | quote }}
 
 {{ "" }}
 

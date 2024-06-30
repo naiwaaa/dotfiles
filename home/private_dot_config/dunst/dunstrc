@@ -1,118 +1,118 @@
 [global]
 
-  # -------
-  # Display
-  # -------
+# -------
+# Display
+# -------
 
-  monitor = 0
-  follow = keyboard
+monitor = 0
+follow = keyboard
 
-  enable_posix_regex = true
+enable_posix_regex = true
 
-  # --------
-  # Geometry
-  # --------
+# --------
+# Geometry
+# --------
 
-  width = 400
-  height = 300
-  notification_limit  = 0
-  origin = top-right
-  offset = 20x15
-  scale = 0
+width = 400
+height = 300
+notification_limit  = 0
+origin = top-right
+offset = 20x15
+scale = 0
 
-  # ------------
-  # Progress bar
-  # ------------
+# ------------
+# Progress bar
+# ------------
 
-  progress_bar = true
-  progress_bar_horizontal_alignment = right
-  progress_bar_height = 10
-  progress_bar_min_width = 348
-  progress_bar_max_width = 348
-  progress_bar_frame_width = 1
-  progress_bar_corner_radius = 4
+progress_bar = true
+progress_bar_horizontal_alignment = right
+progress_bar_height = 10
+progress_bar_min_width = 348
+progress_bar_max_width = 348
+progress_bar_frame_width = 1
+progress_bar_corner_radius = 4
 
-  icon_corner_radius = 4
-  indicate_hidden = true
-  transparency = 0
-  separator_height = 3
-  padding = 8
-  horizontal_padding = 8
-  text_icon_padding = 0
-  frame_width = 2
-  gap_size = 4
-  separator_color = frame
-  sort = true
-  idle_threshold = 120
-  layer = overlay
+icon_corner_radius = 4
+indicate_hidden = true
+transparency = 0
+separator_height = 3
+padding = 8
+horizontal_padding = 8
+text_icon_padding = 0
+frame_width = 2
+gap_size = 4
+separator_color = frame
+sort = true
+idle_threshold = 120
+layer = overlay
 
-  # ----
-  # Text
-  # ----
+# ----
+# Text
+# ----
 
-  font = JetBrainsMono NF 9
-  line_height = 4
-  markup = full
-  format = "<b>%s</b> %p\n%b"
-  vertical_alignment = center
-  show_age_threshold = 60
-  ignore_newline = false
-  stack_duplicates = true
-  hide_duplicate_count = false
-  show_indicators = true
+font = JetBrainsMono NF 9
+line_height = 4
+markup = full
+format = "<b>%s</b> %p\n%b"
+vertical_alignment = center
+show_age_threshold = 60
+ignore_newline = false
+stack_duplicates = true
+hide_duplicate_count = false
+show_indicators = true
 
-  # -----
-  # Icons
-  # -----
+# -----
+# Icons
+# -----
 
-  icon_theme = "candy-icons, Adwaita"
-  enable_recursive_icon_lookup = true
-  icon_position = left
-  min_icon_size = 32
-  max_icon_size = 32
+icon_theme = "candy-icons, Adwaita"
+enable_recursive_icon_lookup = true
+icon_position = left
+min_icon_size = 32
+max_icon_size = 32
 
-  # -------
-  # History
-  # -------
+# -------
+# History
+# -------
 
-  sticky_history = true
-  history_length = 20
+sticky_history = true
+history_length = 20
 
-  # -------------
-  # Misc/Advanced
-  # -------------
+# -------------
+# Misc/Advanced
+# -------------
 
-  dmenu = "/usr/bin/rofi -p dunst:"
-  browser = "/usr/bin/xdg-open"
-  always_run_script = true
-  title = "Dunst"
-  class = "Dunst"
-  corner_radius = 8
-  ignore_dbusclose = false
-  force_xwayland = false
+dmenu = "/usr/bin/rofi -p dunst:"
+browser = "/usr/bin/xdg-open"
+always_run_script = true
+title = "Dunst"
+class = "Dunst"
+corner_radius = 8
+ignore_dbusclose = false
+force_xwayland = false
 
-  # -----
-  # Mouse
-  # -----
+# -----
+# Mouse
+# -----
 
-  mouse_left_click = do_action
-  mouse_middle_click = close_all
-  mouse_right_click = close_current
+mouse_left_click = do_action
+mouse_middle_click = close_all
+mouse_right_click = close_current
 
 [experimental]
-  per_monitor_dpi = false
+per_monitor_dpi = false
 
 [urgency_low]
-  default_icon = "dialog-information-symbolic"
-  timeout = 10
+default_icon = "dialog-information-symbolic"
+timeout = 10
 
 [urgency_normal]
-  icon = "dialog-information-symbolic"
-  timeout = 10
+icon = "dialog-information-symbolic"
+timeout = 10
 
 [urgency_critical]
-  icon = "dialog-error-symbolic"
-  timeout = 0
+icon = "dialog-error-symbolic"
+timeout = 0
 
 # ------------
 # Custom rules

@@ -1,0 +1,19 @@
+{{- if eq .theme.colorTheme "rose-pine-dawn" -}}
+[urgency_low]
+  background = "#f2e9e1" # overlay
+  foreground = "#797593" # subtle
+  frame_color = "#f4ede8" # highlight low
+  highlight = "#797593" # subtle
+
+[urgency_normal]
+  background = "#f2e9e1" # overlay
+  foreground = "#575279" # text
+  frame_color = "#f4ede8" # highlight low
+  highlight = "#575279" # text
+
+[urgency_critical]
+  background = "#f2e9e1"  # overlay
+  foreground = "#b4637a" # love
+  frame_color = "#b4637a" # love
+  highlight = "#b4637a" # love
+{{- end -}}
