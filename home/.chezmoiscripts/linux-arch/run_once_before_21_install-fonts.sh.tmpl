@@ -10,4 +10,4 @@
 
 {{ "" }}
 
-paru -Sy --needed {{ $packages | join " " }}
+paru -Sy --noconfirm --needed {{ $packages | join " " }}

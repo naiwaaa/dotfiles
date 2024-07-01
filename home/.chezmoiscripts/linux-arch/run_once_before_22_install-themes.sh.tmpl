@@ -7,12 +7,13 @@
     "candy-icons-git"
     "fontconfig"
     "kvantum-qt5"
-    "kvantum-theme-arc"
     "nwg-look-bin"
     "qt5ct"
     "qt6ct"
+    "qt5-wayland"
+    "qt6-wayland"
 -}}
 
 {{ "" }}
 
-paru -Sy --needed {{ $packages | join " " }}
+paru -Sy --noconfirm --needed {{ $packages | join " " }}

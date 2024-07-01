@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+mise install
+
+{{ "" }}
+
+{{- if .isPersonal -}}
+mkdir -p ~/Projects/Personal/{SourceHut,GitHub} ~/Workspace
+{{- end -}}

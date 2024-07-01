@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+gsettings set org.gnome.desktop.interface gtk-theme {{ .theme.isDark | ternary "Arc-Dark" "Arc" }}
+gsettings set org.gnome.desktop.interface icon-theme candy-icons
+gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Ice

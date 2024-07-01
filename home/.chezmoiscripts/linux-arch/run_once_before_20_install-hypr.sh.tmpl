@@ -3,29 +3,35 @@
 {{-
   $packages := list
     "brightnessctl"
+    "cpio"
     "dunst"
-    "fcitx5-im"
     "fcitx5-bamboo"
-    "grim"
-    "hyprland-git"
-    "hypridle-git"
-    "hyprlock-git"
-    "kitty"
-    "polkit-gnome"
+    "fcitx5-im"
     "gnome-keyring"
+    "grim"
+    "hyprcursor-git"
+    "hypridle-git"
+    "hyprland-git"
+    "hyprlang-git"
+    "hyprlock-git"
+    "hyprwayland-scanner-git"
+    "kitty"
+    "libsecret"
+    "polkit-gnome"
     "qt5-wayland"
     "qt6-wayland"
     "rofi-wayland"
+    "seahorse"
     "slurp"
     "swaybg"
     "trash-cli"
     "udiskie"
     "upower"
-    "xdg-user-dirs"
     "xdg-desktop-portal-gtk"
     "xdg-desktop-portal-hyprland-git"
+    "xdg-user-dirs"
 -}}
 
 {{ "" }}
 
-paru -Sy --needed {{ $packages | join " " }}
+paru -Sy --noconfirm --needed {{ $packages | join " " }}

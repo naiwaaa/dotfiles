@@ -8,14 +8,14 @@
 {{ "" }}
 
 # perform full system upgrade
-{{ $sudo -}} pacman -Syu
+{{ $sudo -}} pacman -Syu --noconfirm
 
 # install prerequisites
-{{ $sudo -}} pacman -Sy base-devel curl git wget
+{{ $sudo -}} pacman -Sy --noconfirm --needed base-devel curl git wget
 
 # install paru
-paru_dir="$HOME/Packages/paru-bin"
-mkdir -p "$paru_dir"
+paru_dir="$HOME/paru-bin"
 git clone https://aur.archlinux.org/paru-bin.git "$paru_dir"
 cd "$paru_dir" || exit
-makepkg -si
+makepkg -si --noconfirm
+rm -rf "$paru_dir"

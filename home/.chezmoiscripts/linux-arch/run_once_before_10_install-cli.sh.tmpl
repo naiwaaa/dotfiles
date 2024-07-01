@@ -7,7 +7,9 @@
     "btop"
     "fd"
     "fzf"
+    "jq"
     "nvitop"
+    "poppler"
     "ripgrep"
     "rsync"
     "starship"
@@ -20,6 +22,4 @@
 
 {{ "" }}
 
-paru -Sy --needed {{ $packages | join " " }}
-
-bat cache --build
+paru -Sy --noconfirm --needed {{ $packages | join " " }}
