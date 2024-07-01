@@ -1,0 +1,113 @@
+theme = {{ .theme.colorTheme | replace "-" "_" | quote }}
+
+# ------
+# Editor
+# ------
+
+[editor]
+scrolloff = 5
+scroll-lines = 5
+line-number = "relative"
+cursorline = true
+auto-save = true
+idle-timeout = 400
+true-color = true
+rulers = [90]
+bufferline = "never"
+color-modes = true
+text-width = 90
+default-line-ending = "lf"
+
+[editor.statusline]
+left = [
+  "mode",
+  "file-name",
+  "read-only-indicator",
+  "file-modification-indicator",
+  "version-control",
+]
+right = [
+  "spinner",
+  "diagnostics",
+  "separator",
+  "register",
+  "file-encoding",
+  "file-line-ending",
+  "file-type",
+  "position",
+]
+mode.normal = "N"
+mode.insert = "I"
+mode.select = "S"
+separator = "|"
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+"'" = "'"
+'`' = '`'
+'<' = '>'
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "␣"
+tab = "▸"
+newline = "↴"
+tabpad = "-"
+
+[editor.indent-guides]
+render = true
+character = "┊"
+skip-levels = 1
+
+# -----------
+# Key mapping
+# -----------
+
+[keys.normal]
+# map C-s to the save file
+C-s = ":w"
+
+# navigate buffers
+"A-," = "goto_previous_buffer"
+"A-." = "goto_next_buffer"
+"A-w" = ":buffer-close"
+"A-/" = "repeat_last_motion"
+
+# map Shift-x to shrink a line up
+A-x = "extend_to_line_bounds"
+X = ["extend_line_up", "extend_to_line_bounds"]
+
+[keys.normal.g]
+# map `ga` to show possible code actions
+a = "code_action"
+
+[keys.normal."+"]
+m = ":run-shell-command make"
+c = ":run-shell-command cargo build"
+t = ":run-shell-command cargo test"
+
+[keys.insert]
+
+[keys.insert.j]
+# map `jk` to exit insert mode
+k = "normal_mode"
+
+[keys.select]
+# map Shift-x to shrink a line up
+A-x = "extend_to_line_bounds"
+X = ["extend_line_up", "extend_to_line_bounds"]
