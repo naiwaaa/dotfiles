@@ -1,0 +1,63 @@
+# type: ignore
+# ruff: noqa: F401
+# pylint: disable=unused-import
+
+import atexit
+import math
+import os
+import readline
+import sys
+from pathlib import Path
+
+try:
+    import numpy as np
+except ImportError:
+    pass
+
+try:
+    import pandas as pd
+except ImportError:
+    pass
+
+try:
+    import matplotlib.pyplot as plt
+
+    plt.ion()
+except ImportError:
+    pass
+
+
+# set ipython prompt to ">>> "
+try:
+    from IPython import get_ipython
+
+    get_ipython().run_line_magic("doctest_mode", "")
+    get_ipython().run_line_magic("load_ext", "ipython_autoimport")
+except:
+    pass
+
+
+# active tab completion
+readline.parse_and_bind("tab: complete")
+
+
+# history file
+history = os.path.join(os.environ["XDG_CACHE_HOME"], "python_history")
+
+try:
+    readline.read_history_file(history)
+except OSError:
+    pass
+
+def write_history():
+    import os
+    import readline
+
+    history = os.path.join(os.environ["XDG_CACHE_HOME"], "python_history")
+
+    try:
+        readline.write_history_file(history)
+    except OSError:
+        pass
+
+atexit.register(write_history)
