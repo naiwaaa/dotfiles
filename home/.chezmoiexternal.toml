@@ -12,6 +12,11 @@ type = "file"
 url = "https://raw.githubusercontent.com/rose-pine/btop/main/rose-pine.theme"
 refreshPeriod = "168h"
 
+[".config/helix/themes/rose_pine.conf"]
+type = "file"
+url = "https://raw.githubusercontent.com/rose-pine/helix/main/rose_pine.toml"
+refreshPeriod = "168h"
+
 [".config/kitty/themes/rose-pine.conf"]
 type = "file"
 url = "https://raw.githubusercontent.com/rose-pine/kitty/main/dist/rose-pine.conf"
@@ -29,6 +34,16 @@ refreshPeriod = "168h"
 [".config/btop/themes/rose-pine-dawn.theme"]
 type = "file"
 url = "https://raw.githubusercontent.com/rose-pine/btop/main/rose-pine-dawn.theme"
+refreshPeriod = "168h"
+
+[".config/helix/themes/rose_pine_dawn.conf"]
+type = "file"
+url = "https://raw.githubusercontent.com/rose-pine/helix/main/rose_pine_dawn.toml"
+refreshPeriod = "168h"
+
+[".config/kitty/themes/rose-pine-dawn.conf"]
+type = "file"
+url = "https://raw.githubusercontent.com/rose-pine/kitty/main/dist/rose-pine-dawn.conf"
 refreshPeriod = "168h"
 
 # -----------
