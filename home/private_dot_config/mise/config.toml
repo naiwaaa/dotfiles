@@ -2,10 +2,10 @@
 bun = "latest"
 node = "lts"
 pnpm = "latest"
-poetry = "latest"
 python = "3.12"
-zig = "latest"
 usage = "latest"
+uv = "latest"
+zig = "latest"
 
 [settings]
 experimental = true
