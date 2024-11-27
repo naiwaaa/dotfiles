@@ -1,3 +1,5 @@
+fpath=(${0:h}/external/src $fpath)
+
 # --------------
 # Initialization
 # --------------

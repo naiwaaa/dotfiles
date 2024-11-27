@@ -65,6 +65,11 @@ type = "git-repo"
 url = "https://github.com/zsh-users/zsh-autosuggestions.git"
 refreshPeriod = "168h"
 
+[".config/zsh/plugins/completion/external"]
+type = "git-repo"
+url = "https://github.com/clarketm/zsh-completions.git"
+refreshPeriod = "168h"
+
 [".config/zsh/plugins/lscolors/external/lscolors.sh"]
 type = "file"
 url = "https://raw.githubusercontent.com/trapd00r/LS_COLORS/master/lscolors.sh"
