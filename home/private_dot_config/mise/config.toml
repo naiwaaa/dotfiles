@@ -2,7 +2,6 @@
 bun = "latest"
 node = "lts"
 pnpm = "latest"
-python = "3.12"
 usage = "latest"
 uv = "latest"
 zig = "latest"
@@ -13,25 +12,35 @@ zig = "latest"
 "npm:@microsoft/compose-language-service" = "latest"
 "npm:dockerfile-language-server-nodejs" = "latest"
 "npm:graphql-language-service-cli" = "latest"
-"ubi:kristoff-it/superhtml" = "latest"
-"ubi:luals/lua-language-server" = "latest"
-"ubi:artempyanykh/marksman" = "latest"
 "npm:pyright" = "latest"
-"pipx:ruff-lsp" = "latest"
-"ubi:tamasfe/taplo" = "latest"
 "npm:sql-language-server" = "latest"
 "npm:@tailwindcss/language-server" = "latest"
 "npm:typescript-language-server" = "latest"
-"ubi:nvarner/typst-lsp" = "latest"
 "npm:@vue/language-server" = "latest"
 "npm:yaml-language-server" = "latest"
-"ubi:zigtools/zls" = "latest"
+
+"aqua:LuaLS/lua-language-server" = "latest"
+"aqua:astral-sh/ruff" = "latest"
+"aqua:zigtools/zls" = "latest"
+"aqua:tamasfe/taplo" = "latest"
+"aqua:nvarner/typst-lsp" = "latest"
+"ubi:kristoff-it/superhtml" = "latest"
+"ubi:artempyanykh/marksman" = "latest"
 
 [settings]
-experimental = true
-legacy_version_file = false
-plugin_autoupdate_last_check_duration = "1 week"
-trusted_config_paths = ["~/Projects", "~/Workspace"]
-status = { show_env = true }
-pipx_uvx = true
 disable_hints = ["python_multi", "python_precompiled"]
+experimental = true
+idiomatic_version_file = false
+trusted_config_paths = ["~/Projects", "~/Workspace"]
+
+[settings.npm]
+bun = true
+
+[settings.pipx]
+uvx = true
+
+[settings.python]
+uv_venv_auto = true
+
+[settings.status]
+show_env = true
