@@ -14,10 +14,10 @@ enable_posix_regex = true
 # --------
 
 width = 400
-height = 300
+height = (0, 300)
 notification_limit  = 0
 origin = top-right
-offset = 20x15
+offset = (20, 15)
 scale = 0
 
 # ------------
