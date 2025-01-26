@@ -118,11 +118,11 @@
 [url "git@github.com:{{ .git.personal.username }}/"]
   insteadOf        = https://github.com/{{ .git.personal.username }}/
 
-[includeIf "gitdir:~/Projects/Personal/"]
+[includeIf "gitdir:~/Projects/"]
   path             = git_config.d/personal
 {{- end -}}
 
-{{- if not .isPersonal -}}
-[includeIf "gitdir:~/Projects/Workspace/"]
+{{- if .canAccessWorkspace -}}
+[includeIf "gitdir:~/Workspace/"]
   path             = git_config.d/work
 {{- end -}}

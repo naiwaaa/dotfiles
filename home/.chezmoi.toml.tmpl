@@ -3,33 +3,37 @@
 {{-   $osId = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
-{{- $isPersonal := promptBoolOnce . "isPersonal" "Personal computer?" -}}
+{{- $isPersonal := promptBoolOnce . "isPersonal" "Personal computer" -}}
+{{- $canAccessWorkspace := promptBoolOnce . "canAccessWorkspace" "Workspace access" -}}
 
-{{- $isDark := promptBool "Dark mode?" -}}
-{{- $themes := $isDark | ternary (list "rose-pine") (list "rose-pine-dawn") -}}
-{{- $colorTheme := promptChoice "Color theme?" $themes -}}
+{{- $useDarkMode := promptBool "Dark mode" -}}
+{{- $themes := $useDarkMode | ternary (list "rose-pine") (list "rose-pine-dawn") -}}
+{{- $colorTheme := promptChoice "Color theme" $themes -}}
 
 
 [data]
 osId = {{ $osId | quote }}
 isPersonal = {{ $isPersonal }}
-
-{{ "" }}
+canAccessWorkspace = {{ $canAccessWorkspace }}
 
 [data.theme]
-isDark = {{ $isDark }}
+useDarkMode = {{ $useDarkMode }}
 colorTheme = {{ $colorTheme | quote }}
 
 {{ "" }}
 
 {{- if $isPersonal -}}
-[data.git.personal_sr]
+[data.git.personal]
 name = "Tho Nguyen"
-username = {{ promptStringOnce . "git.personal_sr.username" "My SourceHut username" | quote }}
-email = {{ promptStringOnce . "git.personal_sr.email" "My SourceHut email" | quote }}
+username = "naiwaaa"
+email = "contact@naiwaaa.simplelogin.com"
+{{- end -}}
 
-[data.git.personal_gh]
-name = "Tho Nguyen"
-username = {{ promptStringOnce . "git.personal_gh.username" "My GitHub username" | quote }}
-email = {{ promptStringOnce . "git.personal_gh.email" "My GitHub email" | quote }}
+{{ "" }}
+
+{{ if $canAccessWorkspace -}}
+[data.git.work]
+name = {{ promptStringOnce . "git.work.name" "Workspace Git name" | quote }}
+username = {{ promptStringOnce . "git.work.username" "Workspace Git username" | quote }}
+email = {{ promptStringOnce . "git.work.email" "Workspace Git email" | quote }}
 {{- end -}}

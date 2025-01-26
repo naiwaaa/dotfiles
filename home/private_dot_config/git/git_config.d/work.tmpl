@@ -1,0 +1,7 @@
+{{- if .canAccessWorkspace -}}
+
+[user]
+  name             = {{ .git.work.name }}
+  email            = {{ .git.work.email }}
+
+{{- end -}}
