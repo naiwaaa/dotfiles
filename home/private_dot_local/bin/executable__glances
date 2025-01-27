@@ -1,0 +1,27 @@
+#!/usr/bin/bash
+
+SCRIPT_NAME=$(basename "$0")
+
+main() {
+  # read -r vpn <<<"$(protonvpn-cli status | grep 'Server')"
+  # vpn=$(echo "$vpn" | awk -F ':[[:space:]]+' '{print $2}')
+  vpn="Disconnected"
+
+  time=$(date +'%r')
+  date=$(date +'%a, %b %d, %Y')
+  battery=$(_batteryctl --get)
+
+  volume=$(_volumectl --get)
+  brightness=$(_brightnessctl --get)
+
+  output="|  $time |   $date\\n| $battery | 墳 $volume |  $brightness\\n| 嬨 $vpn"
+
+  dunstify \
+    --urgency "normal" \
+    --icon "" \
+    --hints "string:x-dunst-stack-tag:$SCRIPT_NAME" \
+    "Glances" \
+    "$output"
+}
+
+main "$@"

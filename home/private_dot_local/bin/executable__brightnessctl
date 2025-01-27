@@ -1,12 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env -S usage bash
+#USAGE flag "--get" help="Get current brightness"
+#USAGE flag "--inc" help="Increase brightness by 5%"
+#USAGE flag "--dec" help="Decrease brightness by 5%"
 
 SCRIPT_NAME=$(basename "$0")
 
 main() {
   if [[ $# -eq 0 ]]; then
-    echo "No option specified."
-    echo
-    .print_usage
+    echo "error: no option specified."
     exit 1
   fi
 
@@ -26,29 +27,12 @@ main() {
     --dec)
       .dec_brightness
       ;;
-    -h | --help)
-      .print_usage
-      exit 0
-      ;;
     *)
       echo "error: unrecognized arguments: $param"
       exit 1
       ;;
     esac
   done
-}
-
-.print_usage() {
-  cat <<EOF
-Usage:
-  $SCRIPT_NAME [OPTION]
-
-Options:
-  --get         Get current brightness
-  --inc         Increase brightness by 5%
-  --dec         Decrease brightness by 5%
-  -h, --help    Show this help and exit
-EOF
 }
 
 .get_brightness() {

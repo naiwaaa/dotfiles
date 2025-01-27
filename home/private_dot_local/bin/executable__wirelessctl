@@ -1,12 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env -S usage bash
+#USAGE flag "--toggle-airplane" help="Toggle airplane mode"
 
 SCRIPT_NAME=$(basename "$0")
 
 main() {
   if [[ $# -eq 0 ]]; then
-    echo "No option specified."
-    echo
-    .print_usage
+    echo "error: no option specified."
     exit 1
   fi
 
@@ -20,27 +19,12 @@ main() {
     --toggle-airplane)
       .toggle_airplane_mode
       ;;
-    -h | --help)
-      .print_usage
-      exit 0
-      ;;
     *)
       echo "error: unrecognized arguments: $param"
       exit 1
       ;;
     esac
   done
-}
-
-.print_usage() {
-  cat <<EOF
-Usage:
-  $SCRIPT_NAME [OPTION]
-
-Options:
-  --toggle-airplane  Toggle airplane mode
-  -h, --help         Show this help and exit
-EOF
 }
 
 .toggle_airplane_mode() {

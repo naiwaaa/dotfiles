@@ -1,12 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env -S usage bash
+#USAGE flag "--get" help="Get current volume"
+#USAGE flag "--inc" help="Increase volume by 5%"
+#USAGE flag "--dec" help="Decrease volume by 5%"
+#USAGE flag "--toggle-mute" help="Toggle the mute volume"
+
 
 SCRIPT_NAME=$(basename "$0")
 
 main() {
   if [[ $# -eq 0 ]]; then
     echo "No option specified."
-    echo
-    .print_usage
     exit 1
   fi
 
@@ -29,30 +32,12 @@ main() {
     --toggle-mute)
       .toggle_mute
       ;;
-    -h | --help)
-      .print_usage
-      exit 0
-      ;;
     *)
       echo "error: unrecognized arguments: $param"
       exit 1
       ;;
     esac
   done
-}
-
-.print_usage() {
-  cat <<EOF
-Usage:
-  $SCRIPT_NAME [OPTION]
-
-Options:
-  --get           Get current volume
-  --inc           Increase volume by 5%
-  --dec           Decrease volume by 5%
-  --toggle-mute   Toggle mute/unmute
-  -h, --help      Show this help and exit
-EOF
 }
 
 .get_volume() {
@@ -81,16 +66,18 @@ EOF
 }
 
 .notify_user() {
+  current_volume=$(.get_volume)
+
   dunstify \
     --urgency "low" \
-    --icon "$(.get_icon)" \
+    --icon "$(.get_icon "$current_volume")" \
     --hints "string:x-dunst-stack-tag:$SCRIPT_NAME" \
-    --hints "int:value:$(.get_volume)" \
+    --hints "int:value:$(current_volume)" \
     "Volume"
 }
 
 .get_icon() {
-  current_volume=$(.get_volume)
+  current_volume=$1
 
   if [[ "$current_volume" == "muted" ]]; then
     echo "audio-volume-muted-symbolic"
