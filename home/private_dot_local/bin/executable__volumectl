@@ -67,12 +67,13 @@ main() {
 
 .notify_user() {
   current_volume=$(.get_volume)
+  echo "$current_volume"
 
   dunstify \
     --urgency "low" \
     --icon "$(.get_icon "$current_volume")" \
     --hints "string:x-dunst-stack-tag:$SCRIPT_NAME" \
-    --hints "int:value:$(current_volume)" \
+    --hints "int:value:${current_volume}" \
     "Volume"
 }
 
