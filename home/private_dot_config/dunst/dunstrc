@@ -7,30 +7,28 @@
 monitor = 0
 follow = keyboard
 
-enable_posix_regex = true
-
 # --------
 # Geometry
 # --------
 
 width = 400
 height = (0, 300)
-notification_limit  = 0
 origin = top-right
 offset = (20, 15)
 scale = 0
+notification_limit  = 0
 
 # ------------
 # Progress bar
 # ------------
 
 progress_bar = true
-progress_bar_horizontal_alignment = right
 progress_bar_height = 10
+progress_bar_frame_width = 1
 progress_bar_min_width = 348
 progress_bar_max_width = 348
-progress_bar_frame_width = 1
 progress_bar_corner_radius = 4
+progress_bar_horizontal_alignment = right
 
 icon_corner_radius = 4
 indicate_hidden = true
@@ -44,7 +42,6 @@ gap_size = 4
 separator_color = frame
 sort = true
 idle_threshold = 120
-layer = overlay
 
 # ----
 # Text
@@ -89,6 +86,12 @@ title = "Dunst"
 class = "Dunst"
 corner_radius = 8
 ignore_dbusclose = false
+
+# -------
+# Wayland
+# -------
+
+layer = overlay
 force_xwayland = false
 
 # -----
