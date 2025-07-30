@@ -1,6 +1,6 @@
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
-[manager]
+[mgr]
 ratio = [1, 3, 4]
 sort_by = "natural"
 sort_sensitive = false
@@ -9,6 +9,7 @@ sort_dir_first = true
 linemode = "size"
 show_hidden = false
 show_symlink = true
+title_format = ""
 
 [preview]
 tab_size = 8
