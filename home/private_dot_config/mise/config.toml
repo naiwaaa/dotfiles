@@ -1,36 +1,70 @@
 [tools]
 bun = "latest"
-node = "lts"
-pnpm = "latest"
 usage = "latest"
 uv = "latest"
 zig = "latest"
 
-# lsp
-# "npm:bash-language-server" = "latest"
-# "npm:vscode-langservers-extracted" = "latest"
-# "npm:@microsoft/compose-language-service" = "latest"
-# "npm:dockerfile-language-server-nodejs" = "latest"
-# "npm:graphql-language-service-cli" = "latest"
-# "npm:pyright" = "latest"
-# "npm:sql-language-server" = "latest"
-# "npm:@tailwindcss/language-server" = "latest"
-# "npm:typescript-language-server" = "latest"
-# "npm:@vue/language-server" = "latest"
-# "npm:yaml-language-server" = "latest"
+# ----------
+# formatters
+# ----------
+"npm:prettier" = "latest"
 
+# ---
+# lsp
+# ---
+
+# bash
+"npm:bash-language-server" = "latest"
+shellcheck = "latest"
+shfmt = "latest"
+# html, css, json
+"npm:vscode-langservers-extracted" = "latest"
+# docker
+"npm:dockerfile-language-server-nodejs" = "latest"
+"npm:@microsoft/compose-language-service" = "latest"
+# go
+# graphql
+"npm:graphql-language-service-cli" = "latest"
+# helm
+"ubi:mrjosh/helm-ls" = "latest"
+# lua
 "lua-language-server" = "latest"
+# markdown
+"marksman" = "latest"
+# python
+"npm:basedpyright" = "latest"
 "ruff" = "latest"
-"zls" = "latest"
+# sql
+"npm:sql-language-server" = "latest"
+# tailwindcss
+"npm:@tailwindcss/language-server" = "latest"
+# toml
 "taplo" = "latest"
-"aqua:Myriad-Dreamin/tinymist" = "latest"
-"ubi:kristoff-it/superhtml" = "latest"
-"ubi:artempyanykh/marksman" = "latest"
+# typescript
+"npm:typescript-language-server" = "latest"
+# vue
+"npm:@vue/language-server" = "latest"
+# yaml
+"npm:yaml-language-server" = "latest"
+# zig
+"zls" = "latest"
 
 [settings]
+disable_backends = [
+  "asdf",
+  "cargo",
+  "dotnet",
+  "gem",
+  "github",
+  "gitlab",
+  "go",
+  "http",
+  "spm",
+  "vfox",
+]
 disable_hints = ["python_multi", "python_precompiled"]
 experimental = true
-idiomatic_version_file = false
+idiomatic_version_file_enable_tools = []
 trusted_config_paths = ["~/Projects", "~/Workspace"]
 
 [settings.npm]

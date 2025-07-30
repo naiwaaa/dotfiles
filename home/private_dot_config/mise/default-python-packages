@@ -1,5 +1,0 @@
-ipython
-matplotlib
-numpy
-pandas[performance, plot, output-formatting, parquet]
-rich
