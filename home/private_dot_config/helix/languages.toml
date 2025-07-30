@@ -1,10 +1,42 @@
-[[language]]
-name = "python"
-language-servers = ["pyright", "ruff"]
-
-[language-server.pyright.config.python.analysis]
-typeCheckingMode = "basic"
-
 [language-server.ruff]
 command = "ruff"
 args = ["server"]
+
+[language-server.tailwindcss-ls]
+command = "tailwindcss-language-server"
+args = ["--stdio"]
+
+[language-server.yaml-language-server.config.yaml]
+format = { enable = true }
+validation = true
+
+[[language]]
+name = "css"
+language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
+
+[[language]]
+name = "html"
+language-servers = ["vscode-html-language-server", "tailwindcss-ls"]
+
+[[language]]
+name = "python"
+language-servers = ["basedpyright", "ruff"]
+auto-format = true
+
+[[language]]
+name = "svelte"
+language-servers = ["svelteserver", "tailwindcss-ls"]
+
+[[language]]
+name = "toml"
+language-servers = ["taplo"]
+
+[[language]]
+name = "tsx"
+language-servers = ["typescript-language-server", "tailwindcss-ls"]
+
+[[language]]
+name = "vue"
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "vue"] }
+language-servers = ["typescript-language-server"]

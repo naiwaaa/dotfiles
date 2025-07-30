@@ -77,37 +77,3 @@ skip-levels = 1
 # -----------
 # Key mapping
 # -----------
-
-[keys.normal]
-# map C-s to the save file
-C-s = ":w"
-
-# navigate buffers
-"A-," = "goto_previous_buffer"
-"A-." = "goto_next_buffer"
-"A-w" = ":buffer-close"
-"A-/" = "repeat_last_motion"
-
-# map Shift-x to shrink a line up
-A-x = "extend_to_line_bounds"
-X = ["extend_line_up", "extend_to_line_bounds"]
-
-[keys.normal.g]
-# map `ga` to show possible code actions
-a = "code_action"
-
-[keys.normal."+"]
-m = ":run-shell-command make"
-c = ":run-shell-command cargo build"
-t = ":run-shell-command cargo test"
-
-[keys.insert]
-
-[keys.insert.j]
-# map `jk` to exit insert mode
-k = "normal_mode"
-
-[keys.select]
-# map Shift-x to shrink a line up
-A-x = "extend_to_line_bounds"
-X = ["extend_line_up", "extend_to_line_bounds"]
