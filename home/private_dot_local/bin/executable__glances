@@ -14,7 +14,7 @@ main() {
   volume=$(_volumectl --get)
   brightness=$(_brightnessctl --get)
 
-  output="|  $time |   $date\\n| $battery | 墳 $volume |  $brightness\\n| 嬨 $vpn"
+  output="|  $time |  $date\\n| 󰂀 $battery |   $volume | 󰃠 $brightness\\n| 󰖂 $vpn"
 
   dunstify \
     --urgency "normal" \
