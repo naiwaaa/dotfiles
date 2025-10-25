@@ -45,6 +45,11 @@ alias topm="top -o %MEM"
 alias -g L="| less"
 alias -g G="| grep"
 
+# helix
+if (($+commands[helix])); then
+  alias hx="helix"
+fi
+
 #
 #
 #
