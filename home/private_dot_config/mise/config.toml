@@ -3,6 +3,8 @@ bun = "latest"
 usage = "latest"
 uv = "latest"
 zig = "latest"
+just = "latest"
+prek = "latest"
 
 # ----------
 # formatters
