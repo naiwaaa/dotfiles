@@ -1,6 +1,6 @@
 "$schema" = "https://starship.rs/config-schema.json"
 
-scan_timeout = 10
+scan_timeout = 30
 command_timeout = 500
 format = """
 $username\
@@ -28,9 +28,9 @@ $jobs\
 $container\
 $golang\
 $rust\
+$bun\
 $nodejs\
 $python\
-$conda\
 $character"""
 
 [cmd_duration]
@@ -39,11 +39,6 @@ style = "yellow"
 show_notifications = true
 min_time_to_notify = 3600_000     # 60 minutes
 
-[conda]
-format = "[🅒 $environment]($style) "
-style = "bold green"
-ignore_base = false
-
 [container]
 format = '[⬢ \[$name\]]($style) '
 style = "bold red dimmed"
@@ -51,17 +46,17 @@ style = "bold red dimmed"
 [directory]
 format = "[$read_only]($read_only_style)[$path]($style) "
 style = "bold cyan"
-read_only = " "
+read_only = " "
 read_only_style = "red"
 truncation_length = 99
 truncate_to_repo = false
 
 [directory.substitutions]
-"~/Documents" = "Documents"
-"~/Downloads" = "Downloads"
-"~/Playground" = "Playground"
-"~/Projects" = "Projects"
-"~/Workspace" = "Workspace"
+"~/Documents" = "󰉌 Documents"
+"~/Downloads" = "󰉍 Downloads"
+"~/Playground" = "󱧺 Playground"
+"~/Projects" = "󱃪 Projects"
+"~/Workspace" = "󰚝 Workspace"
 
 [docker_context]
 
@@ -70,8 +65,9 @@ format = "[ $branch(:$remote_branch)]($style) "
 style = "purple"
 
 [git_commit]
-format = "[ $hash]($style) "
-style = "purple"
+format = "[\\($hash$tag\\)]($style) "
+style = "bold purple"
+tag_symbol = "󰓹 "
 
 [git_state]
 
@@ -94,11 +90,14 @@ ssh_only = false
 
 [memory_usage]
 
+[bun]
+symbol = " "
+
 [nodejs]
 
 [package]
 disabled = true
-symbol = " "
+symbol = "󰲋 "
 
 [python]
 symbol = " "
