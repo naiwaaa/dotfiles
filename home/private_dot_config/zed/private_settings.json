@@ -1,0 +1,89 @@
+{
+  "auto_signature_help": false,
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 500
+    }
+  },
+  "base_keymap": "VSCode",
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_features": {
+    "calt": true
+  },
+  "buffer_font_size": 14,
+  "buffer_line_height": {
+    "custom": 2
+  },
+  "current_line_highlight": "all",
+  "file_types": {
+    "Dockerfile": ["Dockerfile", "Dockerfile.*", "*.Dockerfile"],
+    "JSON": ["json", "jsonc"],
+    "tailwindcss": ["*.css"]
+  },
+  "helix_mode": true,
+  "icon_theme": "Catppuccin Latte",
+  "indent_guides": {
+    "coloring": "indent_aware"
+  },
+  "inlay_hints": {
+    "enabled": true
+  },
+  "linked_edits": true,
+  "minimap": {
+    "show": "never"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "prettier": {
+    "allowed": true
+  },
+  "preview_tabs": {
+    "enable_preview_from_file_finder": true
+  },
+  "project_panel": {
+    "dock": "right",
+    "entry_spacing": "standard",
+    "hide_gitignore": false,
+    "indent_size": 15
+  },
+  "relative_line_numbers": true,
+  "scroll_sensitivity": 1.5,
+  "scrollbar": {
+    "show": "never"
+  },
+  "tabs": {
+    "activate_on_close": "left_neighbour",
+    "file_icons": true,
+    "git_status": true,
+    "show_diagnostics": "errors"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "terminal": {
+    "copy_on_select": true,
+    "font_size": 11,
+    "line_height": "standard"
+  },
+  "theme": {
+    "dark": "One Dark",
+    "light": "Catppuccin Latte",
+    "mode": "system"
+  },
+  "ui_font_size": 17,
+  "use_smartcase_search": true,
+  "wrap_guides": [90],
+  "wsl_connections": [
+    {
+      "distro_name": "Ubuntu",
+      "projects": [
+        {
+          "paths": ["/home/somebody/Varmeta/harmonic-ai-v2"]
+        }
+      ],
+      "user": null
+    }
+  ]
+}
