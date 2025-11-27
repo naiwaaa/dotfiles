@@ -4,7 +4,7 @@
 
 [".config/bat/themes/rose-pine.tmTheme"]
 type = "file"
-url = "https://raw.githubusercontent.com/rose-pine/tm-theme/main/dist/themes/rose-pine.tmTheme"
+url = "https://raw.githubusercontent.com/rose-pine/tm-theme/refs/heads/main/dist/rose-pine.tmTheme"
 refreshPeriod = "168h"
 
 [".config/btop/themes/rose-pine.theme"]
@@ -28,7 +28,7 @@ refreshPeriod = "168h"
 
 [".config/bat/themes/rose-pine-dawn.tmTheme"]
 type = "file"
-url = "https://raw.githubusercontent.com/rose-pine/tm-theme/main/dist/themes/rose-pine-dawn.tmTheme"
+url = "https://raw.githubusercontent.com/rose-pine/tm-theme/refs/heads/main/dist/rose-pine-dawn.tmTheme"
 refreshPeriod = "168h"
 
 [".config/btop/themes/rose-pine-dawn.theme"]
